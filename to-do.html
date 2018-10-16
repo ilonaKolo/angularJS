@@ -3,13 +3,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="shortcut icon" href="favicon.ico"/>
     <title>Angular.js Õppekeskkond</title>
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="todoCtrl">
 
 <div class="minulogo">
     <img src="angular.png">
@@ -38,32 +39,48 @@
 
 <hr>
 
-<div class="row" style="padding: 5% 10%;">
-    <div class="col-md-6">
-        <h2>What is Angular.JS?</h2>
-            <p>AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your
-                template language and lets you extend HTML's syntax to express your application's
-                components clearly and succinctly. AngularJS's data binding and dependency injection
-                eliminate much of the code you would otherwise have to write. And it all happens within
-                the browser, making it an ideal partner with any server technology.</p>
-    </div>
-    <div class="col-md-6">
-        <h2>What is MVC?</h2>
-            <p>Model–view–controller is an architectural pattern commonly used for developing user
-                interfaces that divides an application into three interconnected parts. This is done
-                to separate internal representations of information from the ways information is
-                presented to and accepted from the user.[1][2] The MVC design pattern decouples these
-                major components allowing for efficient code reuse and parallel development.</p>
-    </div>
+
+<div class="todo-container">
+
+<h2 style="color: #db2e2e;">My Todo List</h2>
+    <br>
+
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="Add New" class="form-control">
+    <br>
+    <input type="submit" value="Add New" class="btn btn-primary">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+<br>
+<p><button ng-click="remove()" class="btn btn-danger">Remove marked</button></p>
+
+
 </div>
 
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('todoCtrl', function($scope) {
+        $scope.todoList = [{todoText:'Do Homework', done:false}];
 
+        $scope.todoAdd = function() {
+            $scope.todoList.push({todoText:$scope.todoInput, done:false});
+            $scope.todoInput = "";
+        };
 
-
-
-
-
-
+        $scope.remove = function() {
+            var oldList = $scope.todoList;
+            $scope.todoList = [];
+            angular.forEach(oldList, function(x) {
+                if (!x.done) $scope.todoList.push(x);
+            });
+        };
+    });
+</script>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

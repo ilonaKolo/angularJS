@@ -1,10 +1,24 @@
 body {
     padding: 1% 2%;
+    text-align: center;
 }
-
 
 .minulogo img {
     height: 35px;
     width: 150px;
     float: left;
+}
+
+.row h2 {
+    color: #db2e2e;
+}
+
+.row p {
+    color: #217cf2;
+}
+
+.todo-container {
+    padding: 5% 0;
+    width: 35%;
+    margin: 0 auto;
 }
