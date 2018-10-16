@@ -1,0 +1,10 @@
+body {
+    padding: 1% 2%;
+}
+
+
+.minulogo img {
+    height: 35px;
+    width: 150px;
+    float: left;
+}
