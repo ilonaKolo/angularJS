@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app='ngSnake'>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body ng-controller="snakeCtrl">
 
 
 <div class="minulogo">
@@ -40,31 +40,22 @@
 </ul>
 
 <hr>
+<div class="game-container">
+    <h2 style="color: #db2e2e;">My Game: </h2>
+    <br>
 
-<h1 class="text-center" style="color: #db2e2e; padding: 3% 0;"><b>Angular.js learning environment</b></h1>
-
-<hr>
-
-<div class="row" style="padding: 5% 10%;">
-    <div class="col-md-6">
-        <h2>What is Angular.JS?</h2>
-            <p>AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your
-                template language and lets you extend HTML's syntax to express your application's
-                components clearly and succinctly. AngularJS's data binding and dependency injection
-                eliminate much of the code you would otherwise have to write. And it all happens within
-                the browser, making it an ideal partner with any server technology.</p>
-    </div>
-    <div class="col-md-6">
-        <h2>What is MVC?</h2>
-            <p>Model–view–controller is an architectural pattern commonly used for developing user
-                interfaces that divides an application into three interconnected parts. This is done
-                to separate internal representations of information from the ways information is
-                presented to and accepted from the user.[1][2] The MVC design pattern decouples these
-                major components allowing for efficient code reuse and parallel development.</p>
+<div id="gameContainer">
+    <div>
+        <div class="column" ng-repeat="column in board" ng-click="placeToken($index)">
+            <div ng-style="setStyling(val)" class="circle" ng-repeat="val in column track by $index">&nbsp</div>
+        </div>
     </div>
 </div>
-
+<div id="startGame" ng-click="newGame()">New Game</div>
+Player Turn : {{player === 1 ? 'Red' : 'Black'}}
+</div>
+<script src="angular.min.js"></script>
+<script src="game.js"></script>
 
 </body>
-
 </html>
