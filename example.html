@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="example.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="shortcut icon" href="favicon.ico"/>
     <title>Angular.js Õppekeskkond</title>
+    <script src="example.js"></script>
+    <script src="angular-animate.js"></script>
     <script src="angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<div>
+<body>
 
 <div class="minulogo">
     <img src="angular.png">
@@ -29,7 +32,7 @@
         <a class="nav-link" href="example.html">Example</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="resources.html">Recourses</a>
+        <a class="nav-link" href="resources.html">Resources</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="game.html">Game</a>
@@ -41,32 +44,51 @@
 
 <hr>
 
-<h1 class="text-center" style="color: #db2e2e; padding: 3% 0;"><b>Angular.js learning environment</b></h1>
 
-<hr>
+<section class="content-block content-1-2">
+    <div class="container" ng-app="exampleApp">
 
-<div class="row" style="padding: 5% 10%;">
-    <div class="col-md-6">
-        <h2>What is Angular.JS?</h2>
-            <p>AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your
-                template language and lets you extend HTML's syntax to express your application's
-                components clearly and succinctly. AngularJS's data binding and dependency injection
-                eliminate much of the code you would otherwise have to write. And it all happens within
-                the browser, making it an ideal partner with any server technology.</p>
+        <script type="text/ng-template" id="example.html">
+            <h2>Step: {{example.step}}</h2>
+            <p>Solution: {{example.solution}}</p>
+        </script>
+
+            <h2 style="padding-top: 5%; color: #db2e2e;">Angular.js Tutorials:</h2>
+
+        <br>
+        <!-- Start Row -->
+        <div class="row">
+            <div class="col-sm">
+                <a href="#!/example1" class="btn btn-primary btn-block">Example 1</a>
+            </div>
+            <div class="col-sm">
+                <a href="#!/example2" class="btn btn-primary btn-block">Example 2</a>
+            </div>
+            <div class="col-sm">
+                <a href="#!/example3" class="btn btn-primary btn-block">Example 3</a>
+            </div>
+
+        </div>
+
+        <div class="row" style="padding-top: 3%;">
+            <div class="col-sm">
+                <a href="#!/example4" class="btn btn-primary btn-block">Example 4</a>
+            </div>
+            <div class="col-sm">
+                <a href="#!/example5" class="btn btn-primary btn-block">Example 5</a>
+            </div>
+            <div class="col-sm">
+                <a href="#!/example6" class="btn btn-primary btn-block">Example 6</a>
+            </div>
+
+        </div>
+        <!-- Start Row -->
+        <div class="exampleView" ng-view></div>
+
+
     </div>
-    <div class="col-md-6">
-        <h2>What is MVC?</h2>
-            <p>Model–view–controller is an architectural pattern commonly used for developing user
-                interfaces that divides an application into three interconnected parts. This is done
-                to separate internal representations of information from the ways information is
-                presented to and accepted from the user.[1][2] The MVC design pattern decouples these
-                major components allowing for efficient code reuse and parallel development.</p>
-    </div>
-</div>
+</section>
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>

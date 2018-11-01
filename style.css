@@ -22,3 +22,32 @@ body {
     width: 35%;
     margin: 0 auto;
 }
+
+.resource-container {
+    padding: 5% 0;
+    width: 65%;
+    margin: 0 auto;
+}
+
+/* example.html */
+
+.exampleView.ng-animate {
+    transition: all ease 0.4s;
+    position: absolute;
+}
+
+.exampleView.ng-enter {
+    top: 200px;
+    opacity: 0;
+}
+
+.exampleView.ng-leave,
+.example-view.ng-enter.ng-enter-active {
+    top: 0;
+    opacity: 1;
+}
+
+.exampleView.ng-leave.ng-leave-active {
+    top: -200px;
+    opacity: 0;
+}
